@@ -1,6 +1,11 @@
 add_library(Encoder INTERFACE)
 target_include_directories(Encoder INTERFACE include)
 
+add_library(AEAT6012 STATIC)
+target_sources(AEAT6012 PRIVATE src/AEAT6012.cpp)
+target_include_directories(AEAT6012 PUBLIC include)
+target_set_mbed_dependency(AEAT6012)
+
 add_library(EncoderAbsolute_PWM STATIC)
 target_sources(EncoderAbsolute_PWM PRIVATE src/EncoderAbsolute_PWM.cpp)
 target_include_directories(EncoderAbsolute_PWM PUBLIC include)
